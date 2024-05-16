@@ -5,12 +5,24 @@ import icon from '../../resources/icon.png?asset'
 
 function createWindow(): void {
   // Create the browser window.
+  // Adding properties to define how the window will look like
   const mainWindow = new BrowserWindow({
     width: 900,
     height: 670,
     show: false,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
+    center: true,
+    title: 'Mimo',
+    frame: false,
+    vibrancy: 'under-window',
+    visualEffectState: 'active',
+    titleBarStyle: 'hidden',
+    trafficLightPosition: { x: 15, y: 10 },
+    // transparent: true,
+    // backgroundColor: '#00999999', // transparent hexadecimal or anything with transparency,
+    // vibrancy: "under-window", // in my case...
+    // visualEffectState: "followWindow"
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
       sandbox: true,
